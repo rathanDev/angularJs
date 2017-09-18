@@ -1,7 +1,11 @@
 (function () {
     'use strict';
 
-    app.controller('AuthenticationController', function ($scope, AuthenticationService) {
+    angular
+        .module('myApp', [])
+        .controller('AuthenticationController', controller);
+
+    function controller($scope, AuthenticationService) {
 
         $scope.username = "username";
         $scope.password = "password";
@@ -17,10 +21,14 @@
             //     $scope.error = "Invalid username or password";
             // }
 
-            AuthenticationService.authenticate($scope.username, $scope.password);
+            AuthenticationService.authenticate($scope.username, $scope.password, function (response) {
+                if (response.success === true) {
+
+                }
+            });
 
         }
 
-    });
+    }
 
 })();

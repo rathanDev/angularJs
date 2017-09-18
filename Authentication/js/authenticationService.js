@@ -1,20 +1,32 @@
 (function () {
     'use strict';
 
-    app.service('AuthenticationService', function () {
+    angular
+        .module('myApp', [])
+        .service('AuthenticationService', service);
 
-        this.authenticate = function (username, password) {
+    function service($http) {
+
+        this.authenticate = function (username, password, callback) {
 
             this.username = "admin";
             this.password = "pass";
 
-            if (username === this.username && password === this.password) {
-                console.log("Authenticated");
-            } else {
-                console.log("Invalid username or password");
-            }
+            var authenticationUrl = "http://10.10.10.27:8080/cal-repo-api/repo" + "user/login";
+
+            $http.post(authenticationUrl, {
+                userName: username, password: password
+            }).success(function (response) {
+                callback(response);
+            }).error(function (err, status) {
+                callback({
+                    success: false,
+                    data: {message: 'Server Error'}
+                })
+            });
+
         }
 
-    });
+    }
 
 })();
