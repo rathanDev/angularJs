@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hae</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="js/authenticationController.js"></script>
+</head>
+
+<body>
+
+<div class="container" ng-app="myApp">
+
+    <div class="row">
+
+        <div class="col-md-12" ng-controller="HomeController">
+            <div class="page-header">{{title}}</div>
+        </div>
+
+        <div login-directive></div>
+
+        <div ui-view></div>
+
+        <script type="text/ng-template" id="login.html">
+            <div ng-controller="authenticationController" class="col-md-12">
+                <h3>Logging in page</h3>
+                <form ng-submit="authenticate()" class="form">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" ng-model="username" placeholder="username" required=""/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" ng-model="password" placeholder="password" required=""/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Login</button>
+                            <span class="text-danger">{{success}}</span>
+                            <span class="text-danger">{{error}}</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="home.html">
+            <div class="col-md-12">
+                <h3>Home Page</h3>
+                <a ui-sref="login">Back</a>
+            </div>
+        </script>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
