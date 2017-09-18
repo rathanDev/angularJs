@@ -1,21 +1,26 @@
-app.controller('AuthenticationController', function ($scope, AuthenticationService) {
+(function () {
+    'use strict';
 
-    $scope.username = "username";
-    $scope.password = "password";
+    app.controller('AuthenticationController', function ($scope, AuthenticationService) {
 
-    $scope.authenticate = function () {
+        $scope.username = "username";
+        $scope.password = "password";
 
-        $scope.success = '';
-        $scope.error = '';
-        //
-        // if ($scope.username === username && $scope.password === password) {
-        //     $scope.success = "Authenticated";
-        // } else {
-        //     $scope.error = "Invalid username or password";
-        // }
+        $scope.authenticate = function () {
 
-        AuthenticationService.authenticate($scope.username, $scope.password);
+            $scope.success = '';
+            $scope.error = '';
+            //
+            // if ($scope.username === username && $scope.password === password) {
+            //     $scope.success = "Authenticated";
+            // } else {
+            //     $scope.error = "Invalid username or password";
+            // }
 
-    }
+            AuthenticationService.authenticate($scope.username, $scope.password);
 
-});
+        }
+
+    });
+
+})();

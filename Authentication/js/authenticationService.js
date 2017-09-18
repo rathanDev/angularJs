@@ -1,15 +1,20 @@
-app.service('AuthenticationService', function () {
+(function () {
+    'use strict';
 
-    this.authenticate = function (username, password) {
+    app.service('AuthenticationService', function () {
 
-        this.username = "admin";
-        this.password = "pass";
+        this.authenticate = function (username, password) {
 
-        if (username === this.username && password === this.password) {
-            console.log("Authenticated");
-        } else {
-            console.log("Invalid username or password");
+            this.username = "admin";
+            this.password = "pass";
+
+            if (username === this.username && password === this.password) {
+                console.log("Authenticated");
+            } else {
+                console.log("Invalid username or password");
+            }
         }
-    }
 
-});
+    });
+
+})();
