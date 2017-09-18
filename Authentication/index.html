@@ -6,8 +6,10 @@
     <title>Hae</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+
     <script src="./app.js"></script>
     <script src="js/authenticationController.js"></script>
+    <script src="js/authenticationService.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,7 @@
         <div ui-view></div>
 
         <script type="text/ng-template" id="login.html">
-            <div ng-controller="authenticationController" class="col-md-12">
+            <div ng-controller="AuthenticationController" class="col-md-12">
                 <h3>Logging in page</h3>
                 <form ng-submit="authenticate()" class="form">
                     <div class="col-md-4">
